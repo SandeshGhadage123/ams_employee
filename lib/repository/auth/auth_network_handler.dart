@@ -5,7 +5,7 @@ import '../../model/auth_models/auth_employee_login_post_model.dart';
 class AuthNetworkHandler {
   final Dio dio = Dio();
 
-  //auth employee login post method
+  /// Get employee
   Future<AuthEmployeeLoginPostModel?> employeeLogin({
     required String email,
     required String idToken,
@@ -26,5 +26,4 @@ class AuthNetworkHandler {
     }
     return null;
   }
-
 }

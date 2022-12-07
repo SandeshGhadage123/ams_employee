@@ -43,13 +43,14 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               GestureDetector(
                 onTap: () async {
-                  AuthEmployeeLoginPostModel? authUserModel =
-                  await userSignIn();
+                  AuthEmployeeLoginPostModel? authUserModel = await userSignIn();
                   if (authUserModel != null) {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => UserHomeScreen(employeeLoginPostModel: authUserModel,),
+                        builder: (context) => UserHomeScreen(
+                          employeeLoginPostModel: authUserModel,
+                        ),
                       ),
                     );
                   }
@@ -89,20 +90,16 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   Future<AuthEmployeeLoginPostModel?> userSignIn() async {
-    // Trigger the authentication flow
+    /// Trigger the authentication flow
     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
 
-    // Obtain the auth details from the request
-    final GoogleSignInAuthentication? googleAuth =
-    await googleUser?.authentication;
+    /// Obtain the auth details from the request
+    final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
 
-    AuthEmployeeLoginPostModel? response =
-    await AuthNetworkHandler().employeeLogin(
-      email: "anand@bi.com",
+    AuthEmployeeLoginPostModel? response = await AuthNetworkHandler().employeeLogin(
+      email: googleUser?.email ?? '',
       idToken: googleAuth?.idToken ?? '',
     );
-
-    GetStorage().write("employee", response);
 
     if (response != null) {
       return response;

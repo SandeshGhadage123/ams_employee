@@ -9,7 +9,7 @@ class DateUtil {
 
   static String getTime(String dateTime) {
     final DateFormat formatter = DateFormat('hh:mm a');
-    final String formatted = formatter.format(DateTime.parse(dateTime));
+    final String formatted = formatter.format(DateTime.parse(dateTime).toLocal());
     return formatted;
   }
 }

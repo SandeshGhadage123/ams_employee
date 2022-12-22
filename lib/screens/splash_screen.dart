@@ -38,15 +38,15 @@ class _SplashScreenState extends State<SplashScreen> {
               ),
             ],
           ),
-          Text(
-            "earthcard".toUpperCase(),
-            style: TextStyle(
-              color: Colors.white,
-              fontFamily: "SFPro",
-              fontSize: 25.sp,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
+          // Text(
+          //   "earthcard".toUpperCase(),
+          //   style: TextStyle(
+          //     color: Colors.white,
+          //     fontFamily: "SFPro",
+          //     fontSize: 25.sp,
+          //     fontWeight: FontWeight.w500,
+          //   ),
+          // ),
         ],
       ),
     );

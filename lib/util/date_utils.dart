@@ -12,4 +12,10 @@ class DateUtil {
     final String formatted = formatter.format(DateTime.parse(dateTime).toLocal());
     return formatted;
   }
+
+  static String getHour(String dateTime) {
+    final DateFormat formatter = DateFormat('H');
+    final String formatted = formatter.format(DateTime.parse(dateTime).toLocal());
+    return formatted;
+  }
 }

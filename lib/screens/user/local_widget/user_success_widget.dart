@@ -80,7 +80,7 @@ class _UserSuccessWidgetState extends State<UserSuccessWidget> {
                             height: 10.h,
                           ),
                           Text(
-                            widget.employee?.attendance ?? '',
+                            (widget.employee?.attendance ?? '').toUpperCase(),
                             style: TextStyle(
                               color: Colors.white,
                               fontFamily: "SFPro",
@@ -123,7 +123,7 @@ class _UserSuccessWidgetState extends State<UserSuccessWidget> {
                                   ),
                                 ),
                                 Text(
-                                  widget.employee?.recentLog ?? '',
+                                  DateUtil.getTime(widget.employee?.recentLog ?? ''),
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontFamily: "SFPro",
@@ -163,9 +163,37 @@ class _UserSuccessWidgetState extends State<UserSuccessWidget> {
                                 ),
                                 Row(
                                   children: [
-                                    const Icon(
-                                      Icons.info_rounded,
-                                      color: Colors.white,
+                                    GestureDetector(
+                                      onTap: () {
+                                        // set up the button
+                                        Widget okButton = TextButton(
+                                          child: Text("OK"),
+                                          onPressed: () {
+                                            Navigator.pop(context);
+                                          },
+                                        );
+
+                                        // set up the AlertDialog
+                                        AlertDialog alert = AlertDialog(
+                                          title: Text("Accuracy"),
+                                          content: Text("Please check after 1 month."),
+                                          actions: [
+                                            okButton,
+                                          ],
+                                        );
+
+                                        // show the dialog
+                                        showDialog(
+                                          context: context,
+                                          builder: (BuildContext context) {
+                                            return alert;
+                                          },
+                                        );
+                                      },
+                                      child: const Icon(
+                                        Icons.info_rounded,
+                                        color: Colors.white,
+                                      ),
                                     ),
                                     Expanded(
                                       child: Text(
@@ -221,7 +249,7 @@ class _UserSuccessWidgetState extends State<UserSuccessWidget> {
                             height: 10.h,
                           ),
                           Text(
-                            "February",
+                            "December",
                             style: TextStyle(
                               color: Colors.white,
                               fontFamily: "SFPro",

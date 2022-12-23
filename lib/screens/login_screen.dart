@@ -98,6 +98,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
     AuthEmployeeLoginPostModel? response = await AuthNetworkHandler().employeeLogin(
       email: googleUser?.email ?? '',
+      //email: "sandeshghadage1@gmail.com",
       idToken: googleAuth?.idToken ?? '',
     );
 

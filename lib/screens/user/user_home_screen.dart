@@ -39,7 +39,7 @@ class _UserHomeScreenState extends State<UserHomeScreen> {
         }
 
         if (response.hasData) {
-          return UserSuccessWidget(employee: response.data);
+          return UserSuccessWidget(employee: response.data, authEmployeeLoginPostModel: widget.employeeLoginPostModel,);
         }
 
         return const Center(

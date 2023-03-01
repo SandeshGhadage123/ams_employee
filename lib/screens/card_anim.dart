@@ -29,10 +29,10 @@ class _CardAnimState extends State<CardAnim> {
 
   @override
   void initState() {
-    accelerometerEvents.listen((AccelerometerEvent event) {
-      changeX(event.z);
-      changeY(event.x);
-    });
+    // accelerometerEvents.listen((AccelerometerEvent event) {
+    //   changeX(event.z);
+    //   changeY(event.x);
+    // });
     super.initState();
   }
 
